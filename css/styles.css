@@ -1,0 +1,334 @@
+/* Umumiy stil */
+body {
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	cursor: none;
+	overflow: hidden;
+	position: relative;
+	background: url('../image/orig.gif') no-repeat center center/cover;
+}
+
+.contact-form {
+	background: white;
+	padding: 40px 30px;
+	border-radius: 10px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	width: 400px;
+	position: relative;
+	opacity: 0.9;
+}
+
+/* Input va label uchun stil */
+.form-group {
+	margin-bottom: 30px;
+	position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+	width: 100%;
+	padding: 12px 12px 12px 40px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+	box-sizing: border-box;
+	height: 45px;
+}
+
+.form-group textarea {
+	height: 80px;
+	resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+	border-color: #007bff;
+	outline: none;
+}
+
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:not(:placeholder-shown) + label {
+	top: -10px;
+	left: 10px;
+	font-size: 14px;
+	color: #007bff;
+}
+
+.form-group label {
+	position: absolute;
+	top: 14px;
+	left: 40px;
+	color: #999;
+	transition: all 0.3s ease;
+	pointer-events: none;
+	background: white;
+	padding: 0 5px;
+	letter-spacing: 1.5px;
+}
+
+.form-group .icon {
+	position: absolute;
+	left: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 18px;
+	height: 45px;
+	display: flex;
+	align-items: center;
+}
+
+.form-group .fa-comment {
+	position: absolute;
+	left: 12px;
+	top: 20px;
+	transform: translateY(-50%);
+	color: #999;
+	font-size: 18px;
+	height: 45px;
+	display: flex;
+	align-items: center;
+}
+
+/* Textarea Scrollbar Customization */
+.form-group textarea::-webkit-scrollbar {
+	width: 8px;
+}
+
+.form-group textarea::-webkit-scrollbar-thumb {
+	background-color: #007bff;
+	border-radius: 10px;
+	border: 2px solid #ffffff;
+}
+
+.form-group textarea::-webkit-scrollbar-thumb:hover {
+	background-color: #0056b3;
+}
+
+.form-group textarea::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 10px;
+}
+
+/* Tugma va loader */
+.submit-btn {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 12px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 100%;
+	transition: background 0.3s;
+	font-size: 16px;
+}
+
+.submit-btn:hover {
+	background-color: #0056b3;
+}
+
+.loading {
+	display: none;
+	margin: 20px auto;
+	border: 4px solid #f3f3f3;
+	border-top: 4px solid #007bff;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Popup bildirishnoma */
+.popup {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #28a745;
+	color: white;
+	padding: 15px;
+	border-radius: 5px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	z-index: 100;
+}
+
+.popup.error {
+	background-color: #dc3545;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+	.contact-form {
+		margin: 0px 10px;
+		opacity: 1;
+	}
+
+	/* Adjust font size for errorPopup on small screens */
+	#popup,
+	#errorPopup {
+		width: 90%;
+		font-size: 16px;
+		padding: 10px;
+	}
+}
+
+/* Language Dropdown */
+.language-select {
+	position: absolute;
+	top: -50px;
+	right: 0;
+	z-index: 10;
+	font-size: 16px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+	transition: border-color 0.3s;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	display: block;
+	width: 150px;
+	text-align: right;
+}
+
+.language-select:hover {
+	border-color: #007bff;
+}
+
+.language-select select {
+	background: none;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
+	padding: 5px;
+	appearance: none;
+	width: 100%;
+	color: #333;
+	padding-right: 30px;
+}
+
+.language-select select:focus {
+	outline: none;
+	box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.language-select::after {
+	content: '\f0d7';
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #007bff;
+	font-size: 16px;
+	pointer-events: none;
+}
+
+/* Suzuvchi kursorning asosiy shakli */
+.smooth-cursor {
+	position: fixed;
+	width: 20px;
+	height: 20px;
+	background: rgba(0, 123, 255, 0.8);
+	/* boshlang'ich rang */
+	border-radius: 50%;
+	pointer-events: none;
+	/* kursorning boshqa elementlarni to'sib qo'ymasligi uchun */
+	transform: translate(-50%, -50%);
+	transition: transform 0.1s ease-out, background 0.3s ease;
+	box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
+	z-index: 9999;
+}
+
+/* Hover bo'lganda kattalashadigan va o'zgaradigan kursor */
+.smooth-cursor.hover {
+	transform: scale(1.5);
+	background: rgba(255, 0, 100, 0.8);
+	/* Hover paytida rang o'zgaradi */
+	box-shadow: 0 0 30px rgba(255, 0, 100, 0.8);
+}
+
+/* Iz effektlari */
+.cursor-trail {
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	background: rgba(0, 123, 255, 0.6);
+	border-radius: 50%;
+	animation: trail-animation 1s forwards;
+	pointer-events: none;
+	z-index: 999;
+}
+
+/* Iz animatsiyasi */
+@keyframes trail-animation {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(2);
+		opacity: 0;
+	}
+}
+
+/* qor */
+/* Qor parchasi uchun asosiy stil */
+.snowflake {
+	position: absolute;
+	top: -10px;
+	color: white;
+	font-size: 12px;
+	/* Standart o‘lcham */
+	user-select: none;
+	pointer-events: none;
+	animation: fall linear infinite;
+}
+
+/* Tushish animatsiyasi */
+@keyframes fall {
+	to {
+		transform: translateY(100vh) translateX(var(--drift));
+	}
+}
+
+/* Yerda qor to‘planishi */
+.ground-snow {
+	position: absolute;
+	bottom: 0;
+	background: white;
+	border-radius: 50%;
+	opacity: 0.8;
+}
+
+/* Erish animatsiyasi */
+@keyframes melt {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(0);
+	}
+}
