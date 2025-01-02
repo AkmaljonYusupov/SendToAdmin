@@ -6,7 +6,8 @@ const lang = {
 		telegramUsernameLabel: 'Foydalanuvchi nomii',
 		messageLabel: 'Xabar',
 		submitBtn: 'Yuborish',
-		successPopup: 'Xabar muvaffiyatli yuborildi!',
+		successPopup:
+			"Xabar muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz.",
 		errorPopup: 'Xabar yuborishda xatolik yuz berdi!',
 		errorValidation:
 			"Iltimos, barcha maydonlarni to'ldirib, telefon raqami faqat raqamlar va + belgisidan, telegram username esa @ bilan boshlanishi kerak.",
@@ -18,7 +19,8 @@ const lang = {
 		telegramUsernameLabel: 'Имя пользователя',
 		messageLabel: 'Сообщение',
 		submitBtn: 'Отправить',
-		successPopup: 'Сообщение успешно отправлено!',
+		successPopup:
+			'Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.!',
 		errorPopup: 'Ошибка при отправке сообщения!',
 		errorValidation:
 			'Пожалуйста, заполните все поля, номер телефона должен начинаться только с цифр и знака +, а имя пользователя Telegram должно начинаться с @.',
@@ -30,7 +32,7 @@ const lang = {
 		telegramUsernameLabel: 'Username',
 		messageLabel: 'Message',
 		submitBtn: 'Send',
-		successPopup: 'Message sent successfully!',
+		successPopup: 'Message successfully sent! We will contact you shortly.',
 		errorPopup: 'Error sending message!',
 		errorValidation:
 			'Please fill in all fields, the phone number must only contain numbers and the + sign, and the telegram username must begin with @.',
