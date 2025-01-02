@@ -9,7 +9,7 @@ const lang = {
 		successPopup: 'Xabar muvaffiyatli yuborildi!',
 		errorPopup: 'Xabar yuborishda xatolik yuz berdi!',
 		errorValidation:
-			"Iltimos, barcha maydonlarni to'ldiring va telefon raqami faqat raqamlar va + belgidan iborat bo'lsin.",
+			"Iltimos, barcha maydonlarni to'ldirib, telefon raqami faqat raqamlar va + belgisidan, telegram username esa @ bilan boshlanishi kerak.",
 	},
 	ru: {
 		nameLabel: 'Имя',
@@ -21,7 +21,7 @@ const lang = {
 		successPopup: 'Сообщение успешно отправлено!',
 		errorPopup: 'Ошибка при отправке сообщения!',
 		errorValidation:
-			'Пожалуйста, заполните все поля, и номер телефона должен содержать только цифры и знак +.',
+			'Пожалуйста, заполните все поля, номер телефона должен начинаться только с цифр и знака +, а имя пользователя Telegram должно начинаться с @.',
 	},
 	en: {
 		nameLabel: 'Name',
@@ -33,7 +33,7 @@ const lang = {
 		successPopup: 'Message sent successfully!',
 		errorPopup: 'Error sending message!',
 		errorValidation:
-			'Please fill all fields and the phone number should only contain numbers and + sign.',
+			'Please fill in all fields, the phone number must only contain numbers and the + sign, and the telegram username must begin with @.',
 	},
 }
 
@@ -76,27 +76,19 @@ function sendMessage() {
 	let telegramUsername = document.getElementById('telegramUsername').value
 
 	// Telefon raqami + bilan boshlanishi kerakligini tekshirish
-	if (!phone.startsWith('+')) {
-		showError(
-			lang[currentLang].errorValidation +
-				' ' +
-				'Telefon raqami + bilan boshlanishi kerak.'
-		)
-		return
-	}
-
-	// Ism va familiya minimal uzunligini tekshirish
-	if (name.length < 5 || surname.length < 5) {
-		showError(
-			lang[currentLang].errorValidation +
-				' ' +
-				"Ism va familiya kamida 5 belgidan iborat bo'lishi kerak."
-		)
+	if (!phone.startsWith('+') || !telegramUsername.startsWith('@')) {
+		showError(lang[currentLang].errorValidation + ' ' + ' ')
 		return
 	}
 
 	// Formni tekshirish
-	if (name === '' || surname === '' || phone === '' || message === '') {
+	if (
+		name === '' ||
+		surname === '' ||
+		phone === '' ||
+		telegramUsername === '' ||
+		message === ''
+	) {
 		showError(lang[currentLang].errorValidation)
 		return
 	}
@@ -118,7 +110,7 @@ function sendMessage() {
 					}\n
 					<b>🙎‍♂️ FISH:</b> ${name + '  ' + surname}\n						
 					<b>📞 Telefon:</b> ${phone}\n
-					<b>✈️ Telegram:</b> @${telegramUsername ? telegramUsername : 'Kiritilmagan'}\n
+					<b>✈️ Telegram:</b> ${telegramUsername ? telegramUsername : 'Kiritilmagan'}\n
 					<b>💬 Xabar:</b> ${message}\n
 `
 
