@@ -178,8 +178,12 @@ body {
 	.contact-form {
 		margin: 0px 10px;
 		opacity: 1;
+		padding: 30px 20px;
 	}
-
+	.snowflake,
+	.ground-snow {
+		display: none;
+	}
 	/* Adjust font size for errorPopup on small screens */
 	#popup,
 	#errorPopup {
@@ -190,9 +194,6 @@ body {
 	}
 	#successPopup {
 		width: 60%;
-	}
-	.form-group #telegramUsernameLabel {
-		font-size: 16px;
 	}
 }
 
